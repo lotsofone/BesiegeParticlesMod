@@ -1,0 +1,63 @@
+<Mod>
+	<Name>lto_particle</Name>
+	<Author>lotsofone</Author>
+	<Version>0.0.4</Version>
+	<Description>Used to create particle effects.</Description>
+	<!-- <Icon name="icon" /> -->
+	<!-- <WorkshopThumbnail name="thumbnail" /> -->
+	<Debug>true</Debug>
+	<MultiplayerCompatible>true</MultiplayerCompatible>
+	<!-- <LoadInTitleScreen /> -->
+	<Assemblies>
+		<!-- <Assembly path="SomeAssembly.dll" /> -->
+		<!-- <ScriptAssembly path="SomeAssembly/" /> -->
+		<!-- <Assembly path="lto_particle.dll" /> -->
+	</Assemblies>
+	<Blocks>
+		<!-- <Block path="ParticleBlock.xml" />
+		<Block path="US-SSME.xml" />
+		<Block path="US-OMS.xml" />
+		<Block path="US-RCS.xml" />
+		<Block path="PlanetEngine.xml" /> -->
+	</Blocks>
+	<Entities>
+		<!-- <Entity path="SomeEntity.xml" /> -->
+	</Entities>
+	<Triggers>
+		
+	</Triggers>
+	<Events>
+		
+	</Events>
+	<Keys>
+		
+	</Keys>
+	
+	<!-- The mod loader will automatically make all resources listed here available
+		 to your mod via the ModResource class.
+		 The path attribute is relative to the Resources/ directory.
+		 You also need to list resources used in your Blocks and Entities.
+		 Available resource types are Mesh, Texture, AudioClip, and AssetBundle. -->
+	<Resources>
+		<Mesh name="ParticleBlockMesh" path="Blocks/ParticleBlock.obj" />
+		<Texture name="ParticleBlockTexture" path="Blocks/ParticleBlock.png" />
+		<Texture name="ParticleBlock/US-OMS" path="Blocks/US-OMS.png" />
+		<Texture name="ParticleBlock/US-RCS" path="Blocks/US-RCS.png" />
+		<Texture name="ParticleBlock/US-SSME" path="Blocks/US-SSME.png" />
+		<Mesh name="plane" path="plane.obj" />
+		<Texture name="white" path="white.png" />
+		<Texture name="HelloWorldPicture" path="HelloWorld.png" />
+		<Texture name="ParticleFire" path="fire.png" />
+		<Texture name="ParticleRocketSmoke" path="RocketSmoke.png" />
+		<Texture name="Particlelight3" path="light3.png" />
+		<Texture name="ParticleSmoke1" path="Smoke1.png" />
+		<Texture name="ParticleSmoke2" path="Smoke2.png" />
+		<Texture name="ParticleSmoke3" path="Smoke3.png" />
+		<Texture name="ParticleSmoke3Lighter" path="Smoke3 lighter.png" />
+		<Texture name="ParticleSmoke4" path="Smoke4.png" />
+	</Resources>
+
+
+	<ID>eff187dc-626f-4b1e-9a4e-ffde7fc88dbc</ID>
+
+</Mod>

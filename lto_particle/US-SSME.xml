@@ -1,0 +1,324 @@
+<Block>
+    <Debug>True</Debug>
+    <ID>1</ID>
+    <Name>US-SSME</Name>
+    <Mass>0.05</Mass>
+    <SearchKeywords>
+        <Keyword>Particle</Keyword>
+    </SearchKeywords>
+    <Script>lto_particle.ParticleBlockScript</Script>
+    <Modules>
+        <ParticleModule modid="eff187dc-626f-4b1e-9a4e-ffde7fc88dbc">
+            <Key key="lto_Key"/>
+            <HoldSwitch key="lto_HoldMode"/>
+            <IDSelection key="lto_ParticleID"/>
+            <ParticleConfigs>
+                <ParticleConfig name="test">
+                    <ColorOverTime>
+                        <ColorKey r="1" g="1" b="1" a="1" k="0"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="5" k="0"/>
+                    </SizeOverTime>
+                    <Texture name="ParticleFire"/>
+                    <Shader>Particles/Alpha Blended</Shader>
+                    <Emission rate="4" type="Time"> 
+                        <Bursts>
+                            <Burst min="5" max="40" time="0"/>
+                        </Bursts>
+                    </Emission>
+                    <MaxParticles>100</MaxParticles>
+                    <LifeTime>5</LifeTime>
+                    <SimulationSpace>World</SimulationSpace>
+                    <InheritVelocityModifier>1</InheritVelocityModifier>
+                    <GravityModifier>1</GravityModifier>
+                    <Speed>10</Speed>
+                    <Dampen>0.0</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <LocalPosition x="0" y="0" z="0"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <RenderMode>BillBoard</RenderMode>
+                    <RandomRotation>false</RandomRotation>
+                    <ShapeConfig>
+                        <ShapeType>ConeVolume</ShapeType>
+                        <RandomDirection>false</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>0</Radius>
+                        <Arc>0</Arc>
+                        <Angle>30</Angle>
+                        <Length>0</Length>
+                    </ShapeConfig>
+                </ParticleConfig>
+
+                <ParticleConfig name="jam">
+                    <ChildConfigs>
+                        <ChildConfig id="2"></ChildConfig>
+                    </ChildConfigs>
+                    <SubEmitters birth0="0"/>
+                    <ColorOverTime>
+                        <ColorKey r="1" g="1" b="0.7" a="0.25" k="0"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="0.001" k="0"/>
+                    </SizeOverTime>
+                    <Texture name="ParticleSmoke3Lighter"/>
+                    <Shader>Particles/Alpha Blended</Shader>
+                    <Emission rate="20" type="Time"> 
+                    </Emission>
+                    <MaxParticles>100</MaxParticles>
+                    <LifeTime>10</LifeTime>
+                    <SimulationSpace>World</SimulationSpace>
+                    <InheritVelocityModifier>1</InheritVelocityModifier>
+                    <GravityModifier>1</GravityModifier>
+                    <Speed>50</Speed>
+                    <Dampen>0.05</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <LocalPosition x="0" y="0" z="0"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <RenderMode>BillBoard</RenderMode>
+                    <ShapeConfig>
+                        <ShapeType>ConeVolume</ShapeType>
+                        <RandomDirection>false</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>0</Radius>
+                        <Arc>0</Arc>
+                        <Angle>1</Angle>
+                        <Length>0</Length>
+                    </ShapeConfig>
+                </ParticleConfig>
+                <ParticleConfig name="jam unit">
+                    <ColorOverTime>
+                        <ColorKey r="1" g="1" b="1" a="0.6" k="0"/>
+                        <ColorKey r="1" g="0.8" b="0.5" a="0.3" k="0.1"/>
+                        <ColorKey r="1" g="0.4" b="0.3" a="0.3" k="0.3"/>
+                        <ColorKey r="0.3" g="0.3" b="0.3" a="0.2" k="0.6"/>
+                        <ColorKey r="0.3" g="0.3" b="0.3" a="0.0" k="1"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="0.5" k="0"/>
+                        <SizeKey size="1" k="1"/>
+                    </SizeOverTime>
+                    <Texture name="ParticleRocketSmoke"/>
+                    <Shader>Particles/Additive</Shader>
+                    <Emission rate="400" type="Time"> 
+                    </Emission>
+                    <MaxParticles>120000</MaxParticles>
+                    <LifeTime>3</LifeTime>
+                    <SimulationSpace>World</SimulationSpace>
+                    <InheritVelocityModifier>0</InheritVelocityModifier>
+                    <GravityModifier>0</GravityModifier>
+                    <Speed>1</Speed>
+                    <Dampen>0.2</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <KillOnCollide>false</KillOnCollide>
+                    <RenderMode>BillBoard</RenderMode>
+                    <LocalPosition x="0" y="0" z="0"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <ShapeConfig>
+                        <ShapeType>Sphere</ShapeType>
+                        <RandomDirection>true</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>0.2</Radius>
+                        <Arc>0</Arc>
+                        <Angle>0</Angle>
+                        <Length>1</Length>
+                    </ShapeConfig>
+                </ParticleConfig>
+                <ParticleConfig name="jet out and main">
+                    <ChildConfigs>
+                        <ChildConfig id="4"></ChildConfig>
+                    </ChildConfigs>
+                    <ColorOverTime>
+                        <ColorKey r="1" g="0.7" b="0.05" a="0.15" k="0"/>
+                        <ColorKey r="1" g="0.7" b="0.05" a="0.0375" k="0.5"/>
+                        <ColorKey r="1" g="0.7" b="0.05" a="0" k="1"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="2" k="0"/>
+                        <SizeKey size="4" k="1"/>
+                    </SizeOverTime>
+                    <Texture name="Particlelight3"/>
+                    <Shader>Particles/Additive</Shader>
+                    <Emission rate="1000" type="Time"> 
+                    </Emission>
+                    <MaxParticles>1000</MaxParticles>
+                    <LifeTime>0.05</LifeTime>
+                    <SimulationSpace>Local</SimulationSpace>
+                    <InheritVelocityModifier>0</InheritVelocityModifier>
+                    <GravityModifier>0</GravityModifier>
+                    <Speed>300</Speed>
+                    <Dampen>0</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <KillOnCollide>false</KillOnCollide>
+                    <RenderMode>BillBoard</RenderMode>
+                    <LocalPosition x="0" y="0" z="0"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <ShapeConfig>
+                        <ShapeType>ConeShell</ShapeType>
+                        <RandomDirection>true</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>0</Radius>
+                        <Arc>0</Arc>
+                        <Angle>0</Angle>
+                        <Length>1</Length>
+                    </ShapeConfig>
+                </ParticleConfig>
+                <ParticleConfig name="jet ring starter">
+                    <ChildConfigs>
+						<ChildConfig id="5">
+							<Position x="0" y="0" z="1"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+						</ChildConfig>
+						<ChildConfig id="5">
+							<Position x="0" y="0" z="2"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+						</ChildConfig>
+						<ChildConfig id="5">
+							<Position x="0" y="0" z="3"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+						</ChildConfig>
+                    </ChildConfigs>
+					<!--<SubEmitters birth0="0"/-->>
+                    <ColorOverTime>
+                        <ColorKey r="1" g="0.7" b="0.05" a="0" k="0"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="1" k="0"/>
+                    </SizeOverTime>
+                    <Texture name="Particlelight3"/>
+                    <Shader>Particles/Additive</Shader>
+                    <Emission rate="100" type="Time"> 
+                    </Emission>
+                    <MaxParticles>1000</MaxParticles>
+                    <LifeTime>0.5</LifeTime>
+                    <SimulationSpace>Local</SimulationSpace>
+                    <InheritVelocityModifier>0</InheritVelocityModifier>
+                    <GravityModifier>0</GravityModifier>
+                    <Speed>30</Speed>
+                    <Dampen>0</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <KillOnCollide>false</KillOnCollide>
+                    <RenderMode>BillBoard</RenderMode>
+                    <LocalPosition x="0" y="0" z="0"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <ShapeConfig>
+                        <ShapeType>ConeShell</ShapeType>
+                        <RandomDirection>true</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>0</Radius>
+                        <Arc>0</Arc>
+                        <Angle>0</Angle>
+                        <Length>1</Length>
+                    </ShapeConfig>
+                </ParticleConfig>
+                <ParticleConfig name="jet ring">
+                    <ColorOverTime>
+                        <ColorKey r="0.8" g="1" b="1" a="0.3" k="0"/>
+                        <ColorKey r="0.8" g="1" b="1" a="0.0375" k="0.5"/>
+                        <ColorKey r="0.8" g="1" b="1" a="0" k="1"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="0.5" k="0"/>
+                    </SizeOverTime>
+                    <Texture name="Particlelight3"/>
+                    <Shader>Particles/Additive</Shader>
+                    <Emission rate="80" type="Time">
+                        <Bursts>
+                            <Burst max="0" min="0" time="0"/>
+                        </Bursts>
+                    </Emission>
+                    <MaxParticles>100000</MaxParticles>
+                    <LifeTime>0.3</LifeTime>
+                    <SimulationSpace>Local</SimulationSpace>
+                    <InheritVelocityModifier>0</InheritVelocityModifier>
+                    <GravityModifier>0</GravityModifier>
+                    <Speed>0</Speed>
+                    <Dampen>0</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <KillOnCollide>false</KillOnCollide>
+                    <RenderMode>BillBoard</RenderMode>
+                    <LocalPosition x="0" y="0" z="0"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <ShapeConfig>
+                        <ShapeType>ConeVolume</ShapeType>
+                        <RandomDirection>true</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>0.6</Radius>
+                        <Arc>0</Arc>
+                        <Angle>0</Angle>
+                        <Length>0</Length>
+                    </ShapeConfig>
+                </ParticleConfig>
+
+            </ParticleConfigs>
+        </ParticleModule>
+    </Modules>
+    <Mesh name="ParticleBlockMesh">
+        <Position x="0.0" y="0.0" z="0.5" />
+        <Rotation x="0.0" y="180" z="0.0" />
+        <Scale x="0.5" y="0.5" z="0.5" />
+    </Mesh>
+    <Texture name="ParticleBlock/US-SSME" />
+    <!-- Must be defined as a resource in the manifest. -->
+    <Icon>
+        <Position x="0.0" y="0.0" z="-1" />
+        <Rotation x="0.0" y="0.0" z="0.0" />
+		<Scale x="0.5" y="0.5" z="0.5" />
+    </Icon>
+    <Colliders>
+        <BoxCollider>
+            <Position x="0.0" y="0.0" z="0.5" />
+            <Rotation x="0.0" y="0.0" z="0.0" />
+            <Scale x="0.0" y="0.0" z="0.0" />
+        </BoxCollider>
+    </Colliders>
+    <ModuleMapperTypes>
+        <Key displayName="按键" key="lto_Key" default="P" />
+        <Toggle displayName="按住发射" key="lto_HoldMode" default="false" />
+        <Slider displayName="粒子号" key="lto_ParticleID" min="0" max="10" default="0.0" unclamped="true" showInMapper="false"/>
+    </ModuleMapperTypes>
+    <BasePoint hasAddingPoint="false">
+        <Stickiness enabled="true" radius="0.6" />
+        <Motion x="false" y="false" z="false" />
+    </BasePoint>
+    <AddingPoints>
+        <AddingPoint>
+            <Position x="0.0" y="0.0" z="0.5" />
+            <Rotation x="0.0" y="0.0" z="0.0" />
+            <Stickiness enabled="false" radius="0.3"/>
+        </AddingPoint>
+    </AddingPoints>
+</Block>

@@ -1,0 +1,97 @@
+<Block>
+	<Debug>True</Debug>
+	<ID>4</ID>
+	<Name>PlanetEngine</Name>
+	<Mass>0.05</Mass>
+    <SearchKeywords>
+        <Keyword>Particle</Keyword>
+    </SearchKeywords>
+    <Script>lto_particle.ParticleBlockScript</Script>
+    <Modules>
+        <ParticleModule modid="eff187dc-626f-4b1e-9a4e-ffde7fc88dbc">
+            <Key key="lto_Key"/>
+            <HoldSwitch key="lto_HoldMode"/>
+            <IDSelection key="lto_ParticleID"/>
+            <ParticleConfigs>
+                <ParticleConfig name="base">
+                    <ColorOverTime>
+                        <ColorKey r="0.1" g="0.1" b="1" a="0.8" k="0"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="3" k="0"/>
+                    </SizeOverTime>
+                    <Texture name="ParticleSmoke3"/>
+                    <Shader>Particles/Additive</Shader>
+                    <Emission rate="15000" type="Time"> 
+                        <Bursts>
+                        </Bursts>
+                    </Emission>
+                    <MaxParticles>50000</MaxParticles>
+                    <LifeTime>3</LifeTime>
+                    <SimulationSpace>Local</SimulationSpace>
+                    <InheritVelocityModifier>0</InheritVelocityModifier>
+                    <GravityModifier>0</GravityModifier>
+                    <Speed>1000</Speed>
+                    <Dampen>0</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <LocalPosition x="0" y="0" z="0.5"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <RenderMode>Stretch</RenderMode>
+                    <RandomRotation>true</RandomRotation>
+                    <ShapeConfig>
+                        <ShapeType>ConeVolume</ShapeType>
+                        <RandomDirection>false</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>9</Radius>
+                        <Arc>0</Arc>
+                        <Angle>0</Angle>
+                        <Length>0</Length>
+                    </ShapeConfig>
+                    <!-- <Collision type="World">
+                        <RadiusScale>1</RadiusScale>
+                    </Collision> -->
+                </ParticleConfig>
+            </ParticleConfigs>
+        </ParticleModule>
+    </Modules>
+	
+    <Mesh name="ParticleBlockMesh">
+        <Position x="0.0" y="0.0" z="0.5" />
+        <Rotation x="0.0" y="180" z="0.0" />
+        <Scale x="0.5" y="0.5" z="0.5" />
+    </Mesh>
+    <Texture name="ParticleBlockTexture" />
+    <Icon>
+        <Position x="0.0" y="0.0" z="-1" />
+        <Rotation x="0.0" y="0.0" z="0.0" />
+		<Scale x="0.5" y="0.5" z="0.5" />
+    </Icon>
+    <Colliders>
+        <BoxCollider>
+            <Position x="0.0" y="0.0" z="0.5" />
+            <Rotation x="0.0" y="0.0" z="0.0" />
+            <Scale x="0.0" y="0.0" z="0.0" />
+        </BoxCollider>
+    </Colliders>
+    <ModuleMapperTypes>
+        <Key displayName="按键" key="lto_Key" default="P" />
+        <Toggle displayName="按住发射" key="lto_HoldMode" default="false" />
+        <Slider displayName="粒子号" key="lto_ParticleID" min="0" max="10" default="0.0" unclamped="true" showInMapper="true"/>
+    </ModuleMapperTypes>
+    <BasePoint hasAddingPoint="false">
+        <Stickiness enabled="true" radius="0.6" />
+        <Motion x="false" y="false" z="false" />
+    </BasePoint>
+    <AddingPoints>
+        <AddingPoint>
+            <Position x="0.0" y="0.0" z="0.5" />
+            <Rotation x="0.0" y="0.0" z="0.0" />
+            <Stickiness enabled="false" radius="0.3"/>
+        </AddingPoint>
+    </AddingPoints>
+</Block>
