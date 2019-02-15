@@ -11,14 +11,14 @@
 	<Assemblies>
 		<!-- <Assembly path="SomeAssembly.dll" /> -->
 		<!-- <ScriptAssembly path="SomeAssembly/" /> -->
-		<!-- <Assembly path="lto_particle.dll" /> -->
+		<Assembly path="lto_particle.dll" />
 	</Assemblies>
 	<Blocks>
-		<!-- <Block path="ParticleBlock.xml" />
+		<Block path="ParticleBlock.xml" />
 		<Block path="US-SSME.xml" />
 		<Block path="US-OMS.xml" />
 		<Block path="US-RCS.xml" />
-		<Block path="PlanetEngine.xml" /> -->
+		<Block path="PlanetEngine.xml" />
 	</Blocks>
 	<Entities>
 		<!-- <Entity path="SomeEntity.xml" /> -->
