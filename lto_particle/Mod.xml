@@ -1,7 +1,7 @@
 <Mod>
 	<Name>lto_particle</Name>
 	<Author>lotsofone</Author>
-	<Version>0.0.4</Version>
+	<Version>0.0.5</Version>
 	<Description>Used to create particle effects.</Description>
 	<!-- <Icon name="icon" /> -->
 	<!-- <WorkshopThumbnail name="thumbnail" /> -->
@@ -15,6 +15,7 @@
 	</Assemblies>
 	<Blocks>
 		<Block path="ParticleBlock.xml" />
+		<Block path="RetroEffectBlock.xml" />
 		<Block path="US-SSME.xml" />
 		<Block path="US-OMS.xml" />
 		<Block path="US-RCS.xml" />
@@ -41,6 +42,7 @@
 	<Resources>
 		<Mesh name="ParticleBlockMesh" path="Blocks/ParticleBlock.obj" />
 		<Texture name="ParticleBlockTexture" path="Blocks/ParticleBlock.png" />
+		<Texture name="ParticleBlock/Retro" path="Blocks/Retro.png" />
 		<Texture name="ParticleBlock/US-OMS" path="Blocks/US-OMS.png" />
 		<Texture name="ParticleBlock/US-RCS" path="Blocks/US-RCS.png" />
 		<Texture name="ParticleBlock/US-SSME" path="Blocks/US-SSME.png" />

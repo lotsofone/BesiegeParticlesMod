@@ -106,6 +106,9 @@
                         <ColorKey r="1" g="0.4" b="0.3" a="0.3" k="0.3"/>
                         <ColorKey r="0.3" g="0.3" b="0.3" a="0.2" k="0.6"/>
                         <ColorKey r="0.3" g="0.3" b="0.3" a="0.0" k="1"/>
+                        <!-- <ColorKey r="1" g="0.4" b="0.1" a="1" k="0"/>
+                        <ColorKey r="0.7" g="0.1" b="0" a="1" k="0.5"/>
+                        <ColorKey r="0" g="0" b="0" a="1" k="1"/> -->
                     </ColorOverTime>
                     <SizeOverTime>
                         <SizeKey size="0.5" k="0"/>

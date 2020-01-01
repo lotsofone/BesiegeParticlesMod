@@ -46,11 +46,11 @@ namespace lto_particle
             }
         }
 
-        public override void OnSimulateStop()
-        {
-            base.OnSimulateStop();
-            TurnColliders(true);
-            TurnRenderer(true);
-        }
+        //public override void OnSimulateStop()
+        //{
+        //    base.OnSimulateStop();
+        //    TurnColliders(true);
+        //    TurnRenderer(true);
+        //}
     }
 }

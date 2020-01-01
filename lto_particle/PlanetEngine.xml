@@ -14,15 +14,47 @@
             <IDSelection key="lto_ParticleID"/>
             <ParticleConfigs>
                 <ParticleConfig name="base">
+                    <ChildConfigs>
+                        <!-- <ChildConfig id="1" startDelay="0">
+							<Position x="0" y="0" z="0"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+                        </ChildConfig> -->
+                        <ChildConfig id="1" startDelay="0">
+							<Position x="0" y="1498" z="5"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+                        </ChildConfig>
+                        <ChildConfig id="1" startDelay="0">
+							<Position x="-1244.59" y="770.1130" z="5"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+                        </ChildConfig>
+                        <ChildConfig id="1" startDelay="0">
+							<Position x="-1029" y="-755" z="5"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+                        </ChildConfig>
+                        <ChildConfig id="1" startDelay="0">
+							<Position x="1069" y="-1072" z="5"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+                        </ChildConfig>
+                        <ChildConfig id="1" startDelay="0">
+							<Position x="1488" y="568" z="5"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+                        </ChildConfig>
+                    </ChildConfigs>
                     <ColorOverTime>
                         <ColorKey r="0.1" g="0.1" b="1" a="0.8" k="0"/>
                     </ColorOverTime>
                     <SizeOverTime>
-                        <SizeKey size="3" k="0"/>
+                        <SizeKey size="30" k="0"/>
                     </SizeOverTime>
                     <Texture name="ParticleSmoke3"/>
                     <Shader>Particles/Additive</Shader>
-                    <Emission rate="15000" type="Time"> 
+                    <Emission rate="0" type="Time"> 
                         <Bursts>
                         </Bursts>
                     </Emission>
@@ -31,7 +63,7 @@
                     <SimulationSpace>Local</SimulationSpace>
                     <InheritVelocityModifier>0</InheritVelocityModifier>
                     <GravityModifier>0</GravityModifier>
-                    <Speed>1000</Speed>
+                    <Speed>10000</Speed>
                     <Dampen>0</Dampen>
                     <MinVelocityLimit>0</MinVelocityLimit>
                     <MaxVelocityLimit>0</MaxVelocityLimit>
@@ -47,7 +79,386 @@
                         <RandomDirection>false</RandomDirection>
                         <NormalOffset>0</NormalOffset>
                         <Box x="0" y="0" z="0"/>
-                        <Radius>9</Radius>
+                        <Radius>90</Radius>
+                        <Arc>0</Arc>
+                        <Angle>0</Angle>
+                        <Length>0</Length>
+                    </ShapeConfig>
+                    <!-- <Collision type="World">
+                        <RadiusScale>1</RadiusScale>
+                    </Collision> -->
+                </ParticleConfig>
+                <ParticleConfig name="blue">
+                    <ColorOverTime>
+                        <ColorKey r="0.1" g="0.1" b="1" a="0.5" k="0"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="30" k="0"/>
+                    </SizeOverTime>
+                    <Texture name="ParticleSmoke3"/>
+                    <Shader>Particles/Additive</Shader>
+                    <Emission rate="15000" type="Time"> 
+                        <Bursts>
+                        </Bursts>
+                    </Emission>
+                    <MaxParticles>50000</MaxParticles>
+                    <LifeTime>1</LifeTime>
+                    <SimulationSpace>Local</SimulationSpace>
+                    <InheritVelocityModifier>0</InheritVelocityModifier>
+                    <GravityModifier>0</GravityModifier>
+                    <Speed>10000</Speed>
+                    <Dampen>0</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <LocalPosition x="0" y="0" z="5"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <RenderMode>Stretch</RenderMode>
+                    <RandomRotation>true</RandomRotation>
+                    <ShapeConfig>
+                        <ShapeType>ConeVolume</ShapeType>
+                        <RandomDirection>false</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>90</Radius>
+                        <Arc>0</Arc>
+                        <Angle>0</Angle>
+                        <Length>0</Length>
+                    </ShapeConfig>
+                    <!-- <Collision type="World">
+                        <RadiusScale>1</RadiusScale>
+                    </Collision> -->
+                </ParticleConfig>
+                <ParticleConfig name="yellow">
+                    <ColorOverTime>
+                        <ColorKey r="0.7" g="0.7" b="0.05" a="0.5" k="0"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="30" k="0"/>
+                    </SizeOverTime>
+                    <Texture name="ParticleSmoke3"/>
+                    <Shader>Particles/Additive</Shader>
+                    <Emission rate="15000" type="Time"> 
+                        <Bursts>
+                        </Bursts>
+                    </Emission>
+                    <MaxParticles>50000</MaxParticles>
+                    <LifeTime>1</LifeTime>
+                    <SimulationSpace>Local</SimulationSpace>
+                    <InheritVelocityModifier>0</InheritVelocityModifier>
+                    <GravityModifier>0</GravityModifier>
+                    <Speed>10000</Speed>
+                    <Dampen>0</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <LocalPosition x="0" y="0" z="5"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <RenderMode>Stretch</RenderMode>
+                    <RandomRotation>true</RandomRotation>
+                    <ShapeConfig>
+                        <ShapeType>ConeVolume</ShapeType>
+                        <RandomDirection>false</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>60</Radius>
+                        <Arc>0</Arc>
+                        <Angle>0</Angle>
+                        <Length>0</Length>
+                    </ShapeConfig>
+                    <!-- <Collision type="World">
+                        <RadiusScale>1</RadiusScale>
+                    </Collision> -->
+                </ParticleConfig>
+                <ParticleConfig name="red base">
+                    <ChildConfigs>
+                        <ChildConfig id="4" startDelay="0">
+							<Position x="16" y="-68" z="5"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+                        </ChildConfig>
+                        <ChildConfig id="4" startDelay="0">
+							<Position x="0" y="-44" z="5"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+                        </ChildConfig>
+                        <ChildConfig id="4" startDelay="0">
+							<Position x="-16" y="-68" z="5"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+                        </ChildConfig>
+                    </ChildConfigs>
+                    <ColorOverTime>
+                        <ColorKey r="1" g="0.1" b="0.1" a="0.5" k="0"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="30" k="0"/>
+                    </SizeOverTime>
+                    <Texture name="ParticleSmoke3"/>
+                    <Shader>Particles/Additive</Shader>
+                    <Emission rate="0" type="Time"> 
+                        <Bursts>
+                        </Bursts>
+                    </Emission>
+                    <MaxParticles>50000</MaxParticles>
+                    <LifeTime>1</LifeTime>
+                    <SimulationSpace>Local</SimulationSpace>
+                    <InheritVelocityModifier>0</InheritVelocityModifier>
+                    <GravityModifier>0</GravityModifier>
+                    <Speed>10000</Speed>
+                    <Dampen>0</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <LocalPosition x="0" y="0" z="5"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <RenderMode>Stretch</RenderMode>
+                    <RandomRotation>true</RandomRotation>
+                    <ShapeConfig>
+                        <ShapeType>ConeVolume</ShapeType>
+                        <RandomDirection>false</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>40</Radius>
+                        <Arc>0</Arc>
+                        <Angle>0</Angle>
+                        <Length>0</Length>
+                    </ShapeConfig>
+                    <!-- <Collision type="World">
+                        <RadiusScale>1</RadiusScale>
+                    </Collision> -->
+                </ParticleConfig>
+                <ParticleConfig name="red">
+                    <ColorOverTime>
+                        <ColorKey r="1" g="0.1" b="0.1" a="0.5" k="0"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="30" k="0"/>
+                    </SizeOverTime>
+                    <Texture name="ParticleSmoke3"/>
+                    <Shader>Particles/Additive</Shader>
+                    <Emission rate="5000" type="Time"> 
+                        <Bursts>
+                        </Bursts>
+                    </Emission>
+                    <MaxParticles>50000</MaxParticles>
+                    <LifeTime>1</LifeTime>
+                    <SimulationSpace>Local</SimulationSpace>
+                    <InheritVelocityModifier>0</InheritVelocityModifier>
+                    <GravityModifier>0</GravityModifier>
+                    <Speed>10000</Speed>
+                    <Dampen>0</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <LocalPosition x="0" y="0" z="5"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <RenderMode>Stretch</RenderMode>
+                    <RandomRotation>true</RandomRotation>
+                    <ShapeConfig>
+                        <ShapeType>ConeVolume</ShapeType>
+                        <RandomDirection>false</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>16</Radius>
+                        <Arc>0</Arc>
+                        <Angle>0</Angle>
+                        <Length>0</Length>
+                    </ShapeConfig>
+                    <!-- <Collision type="World">
+                        <RadiusScale>1</RadiusScale>
+                    </Collision> -->
+                </ParticleConfig>
+                <ParticleConfig name="blue open">
+                    <ColorOverTime>
+                        <ColorKey r="0.1" g="0.1" b="1" a="0.5" k="0"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="30" k="0"/>
+                        <SizeKey size="300" k="1"/>
+                    </SizeOverTime>
+                    <Texture name="ParticleSmoke3"/>
+                    <Shader>Particles/Additive</Shader>
+                    <Emission rate="15000" type="Time"> 
+                        <Bursts>
+                        </Bursts>
+                    </Emission>
+                    <MaxParticles>50000</MaxParticles>
+                    <LifeTime>1</LifeTime>
+                    <SimulationSpace>Local</SimulationSpace>
+                    <InheritVelocityModifier>0</InheritVelocityModifier>
+                    <GravityModifier>0</GravityModifier>
+                    <Speed>10000</Speed>
+                    <Dampen>0</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <LocalPosition x="0" y="0" z="5"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <RenderMode>Stretch</RenderMode>
+                    <RandomRotation>true</RandomRotation>
+                    <ShapeConfig>
+                        <ShapeType>ConeVolume</ShapeType>
+                        <RandomDirection>false</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>90</Radius>
+                        <Arc>0</Arc>
+                        <Angle>20</Angle>
+                        <Length>0</Length>
+                    </ShapeConfig>
+                    <!-- <Collision type="World">
+                        <RadiusScale>1</RadiusScale>
+                    </Collision> -->
+                </ParticleConfig>
+                <ParticleConfig name="blue 0.5">
+                    <ColorOverTime>
+                        <ColorKey r="0.1" g="0.1" b="1" a="0.5" k="0"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="15" k="0"/>
+                    </SizeOverTime>
+                    <Texture name="ParticleSmoke3"/>
+                    <Shader>Particles/Additive</Shader>
+                    <Emission rate="15000" type="Time"> 
+                        <Bursts>
+                        </Bursts>
+                    </Emission>
+                    <MaxParticles>50000</MaxParticles>
+                    <LifeTime>1</LifeTime>
+                    <SimulationSpace>Local</SimulationSpace>
+                    <InheritVelocityModifier>0</InheritVelocityModifier>
+                    <GravityModifier>0</GravityModifier>
+                    <Speed>5000</Speed>
+                    <Dampen>0</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <LocalPosition x="0" y="0" z="5"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <RenderMode>Stretch</RenderMode>
+                    <RandomRotation>true</RandomRotation>
+                    <ShapeConfig>
+                        <ShapeType>ConeVolume</ShapeType>
+                        <RandomDirection>false</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>45</Radius>
+                        <Arc>0</Arc>
+                        <Angle>0</Angle>
+                        <Length>0</Length>
+                    </ShapeConfig>
+                    <!-- <Collision type="World">
+                        <RadiusScale>1</RadiusScale>
+                    </Collision> -->
+                </ParticleConfig>
+                <ParticleConfig name="red base 0.5">
+                    <ChildConfigs>
+                        <ChildConfig id="8" startDelay="0">
+							<Position x="8" y="-34" z="20"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+                        </ChildConfig>
+                        <ChildConfig id="8" startDelay="0">
+							<Position x="0" y="-22" z="20"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+                        </ChildConfig>
+                        <ChildConfig id="8" startDelay="0">
+							<Position x="-8" y="-34" z="20"/>
+							<Rotation x="0" y="0" z="0"/>
+							<Scale x="1" y="1" z="1"/>
+                        </ChildConfig>
+                    </ChildConfigs>
+                    <ColorOverTime>
+                        <ColorKey r="1" g="0.1" b="0.1" a="0.5" k="0"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="30" k="0"/>
+                    </SizeOverTime>
+                    <Texture name="ParticleSmoke3"/>
+                    <Shader>Particles/Additive</Shader>
+                    <Emission rate="0" type="Time"> 
+                        <Bursts>
+                        </Bursts>
+                    </Emission>
+                    <MaxParticles>50000</MaxParticles>
+                    <LifeTime>1</LifeTime>
+                    <SimulationSpace>Local</SimulationSpace>
+                    <InheritVelocityModifier>0</InheritVelocityModifier>
+                    <GravityModifier>0</GravityModifier>
+                    <Speed>10000</Speed>
+                    <Dampen>0</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <LocalPosition x="0" y="0" z="5"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <RenderMode>Stretch</RenderMode>
+                    <RandomRotation>true</RandomRotation>
+                    <ShapeConfig>
+                        <ShapeType>ConeVolume</ShapeType>
+                        <RandomDirection>false</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>40</Radius>
+                        <Arc>0</Arc>
+                        <Angle>0</Angle>
+                        <Length>0</Length>
+                    </ShapeConfig>
+                    <!-- <Collision type="World">
+                        <RadiusScale>1</RadiusScale>
+                    </Collision> -->
+                </ParticleConfig>
+                <ParticleConfig name="red 0.5">
+                    <ColorOverTime>
+                        <ColorKey r="1" g="0.1" b="0.1" a="0.5" k="0"/>
+                    </ColorOverTime>
+                    <SizeOverTime>
+                        <SizeKey size="30" k="0"/>
+                    </SizeOverTime>
+                    <Texture name="ParticleSmoke3"/>
+                    <Shader>Particles/Additive</Shader>
+                    <Emission rate="5000" type="Time"> 
+                        <Bursts>
+                        </Bursts>
+                    </Emission>
+                    <MaxParticles>50000</MaxParticles>
+                    <LifeTime>1</LifeTime>
+                    <SimulationSpace>Local</SimulationSpace>
+                    <InheritVelocityModifier>0</InheritVelocityModifier>
+                    <GravityModifier>0</GravityModifier>
+                    <Speed>10000</Speed>
+                    <Dampen>0</Dampen>
+                    <MinVelocityLimit>0</MinVelocityLimit>
+                    <MaxVelocityLimit>0</MaxVelocityLimit>
+                    <ScalingMode>Hierarchy</ScalingMode>
+                    <LocalPosition x="0" y="0" z="5"/>
+                    <LocalEularAngles x="0" y="0" z="0"/>
+                    <LocalScale x="1" y="1" z="1"/>
+                    <PlayBackSpeed>1</PlayBackSpeed>
+                    <RenderMode>Stretch</RenderMode>
+                    <RandomRotation>true</RandomRotation>
+                    <ShapeConfig>
+                        <ShapeType>ConeVolume</ShapeType>
+                        <RandomDirection>false</RandomDirection>
+                        <NormalOffset>0</NormalOffset>
+                        <Box x="0" y="0" z="0"/>
+                        <Radius>8</Radius>
                         <Arc>0</Arc>
                         <Angle>0</Angle>
                         <Length>0</Length>

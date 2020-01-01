@@ -53,6 +53,7 @@
     <Compile Include="ParticleModuleBehavior.cs" />
     <Compile Include="ParticleModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RetroEffectBlockScript.cs" />
     <Compile Include="Vector3Selector.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

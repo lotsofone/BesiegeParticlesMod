@@ -10,7 +10,7 @@ namespace lto_particle
 		public override void OnLoad()
 		{
             // Called when the mod is loaded.
-            CustomMapperTypes.AddMapperType<Vector3, MVector3, Vector3Selector>();
+            //CustomMapperTypes.AddMapperType<Vector3, MVector3, Vector3Selector>();
             CustomModules.AddBlockModule<ParticleModule, ParticleModuleBehavior>("ParticleModule", true);
             
 		}
