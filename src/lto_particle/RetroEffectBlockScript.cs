@@ -12,6 +12,7 @@ namespace lto_particle
         MKey startKey;
         MValue channelCount;
         MValue particlePerChannel;
+        MSlider particleLength, particleWidth;
         MSlider changeDuration;
         MSlider axisSpeedRamdon, normalSpeedRandom;
         MSlider dampen;
@@ -25,6 +26,9 @@ namespace lto_particle
             startKey = AddKey("启动", "lto_particle_startKey", KeyCode.P);
             this.channelCount = AddValue("通道数", "lto_particle_channelCount", 4);
             this.particlePerChannel = AddValue("粒子数量", "lto_particle_particlePerChannel", 100);
+            this.particleLength = AddSliderUnclamped("粒子长度", "lto_particle_particleLength", 3, 1, 10);
+            this.particleWidth = AddSliderUnclamped("粒子宽度", "lto_particle_particleWidth", 0.5f, 0, 2);
+
             this.changeDuration = AddSliderUnclamped("变化时间", "lto_particle_changeDuration", 1, 0, 10);
             this.axisSpeedRamdon = AddSliderUnclamped("线速度波动", "lto_particle_axisSpeedRandom", 0.15f, 0, 1f);
             this.normalSpeedRandom = AddSliderUnclamped("法速度波动", "lto_particle_normalSpeedRandom", 0.0625f, 0, 1f);
@@ -41,6 +45,9 @@ namespace lto_particle
             this.retroBehaviour.particleCountPerChannel = Mathf.RoundToInt(particlePerChannel.Value);
             if (this.retroBehaviour.particleCountPerChannel <= 0) this.retroBehaviour.particleCountPerChannel = 1;
             if (this.retroBehaviour.channelCount <= 0) this.retroBehaviour.channelCount = 1;
+            this.retroBehaviour.particleLength = particleLength.Value;
+            this.retroBehaviour.particleWidth = particleWidth.Value;
+
             this.retroBehaviour.changeDuration = changeDuration.Value;
             if (this.retroBehaviour.changeDuration < 0) this.retroBehaviour.changeDuration = 0;
             this.retroBehaviour.axisSpeedRandom = axisSpeedRamdon.Value;
@@ -88,8 +95,14 @@ namespace lto_particle
         Color fullColor0 = new Color(1f, 0.4f, 0.1f);
         Color fullColor1 = new Color(0.7f, 0.1f, 0f);
         Color halfColor0 = new Color(0.8f, 0.1f, 0);
+        Mesh particleMesh;
+        Material particleMaterial;
+
+
         public int channelCount = 4;
         public bool _starting = false;
+        public float particleLength = 3;
+        public float particleWidth = 0.5f;
         public float changeDuration = 1f;
         public int particleCountPerChannel = 100;
         public float axisSpeedRandom = 0.15f;
@@ -105,6 +118,14 @@ namespace lto_particle
             var ps = gameObject.GetComponent<ParticleSystem>();
             if (ps == null) ps = gameObject.AddComponent<ParticleSystem>();
             _particleCount = particleCountPerChannel * channelCount;
+
+            particleMesh = new Mesh();
+            particleMesh.vertices = new Vector3[] { new Vector3(-0.5f, -0.5f, 0), new Vector3(-0.5f, 0.5f, 0), new Vector3(0.5f, 0.5f, 0), new Vector3(0.5f, -0.5f, 0) };
+            particleMesh.triangles = new int[]
+            { 0, 1, 2,
+                0, 2, 3
+            };
+
             SetUpParticle(ps);
             particles = new ParticleSystem.Particle[_particleCount];
             ps.Emit(_particleCount);
@@ -122,6 +143,11 @@ namespace lto_particle
                 _UpdateChannel(i);
             }
             ps.SetParticles(particles, _particleCount);
+        }
+        public void OnDestroy()
+        {
+            GameObject.Destroy(particleMesh);
+            GameObject.Destroy(particleMaterial);
         }
         void SetUpParticle(ParticleSystem ps)
         {
@@ -160,14 +186,9 @@ namespace lto_particle
             var renderer = GetComponent<ParticleSystemRenderer>();
             renderer.renderMode = ParticleSystemRenderMode.Mesh;
             renderer.alignment = ParticleSystemRenderSpace.Local;
-            if (Shader.Find("Particles/Additive") != null) renderer.material.shader = Shader.Find("Particles/Additive");
-            var mesh = new Mesh();
-            mesh.vertices = new Vector3[] { new Vector3(-0.5f, -0.5f, 0), new Vector3(-0.5f, 0.5f, 0), new Vector3(0.5f, 0.5f, 0), new Vector3(0.5f, -0.5f, 0) };
-            mesh.triangles = new int[]
-            { 0, 1, 2,
-          0, 2, 3
-            };
-            renderer.mesh = mesh;
+            particleMaterial = renderer.material;
+            if (Shader.Find("Particles/Additive") != null) particleMaterial.shader = Shader.Find("Particles/Additive");
+            renderer.mesh = this.particleMesh;
         }
 
         private void _StartChannel(int channelID)
@@ -263,7 +284,8 @@ namespace lto_particle
                 initialPosition += initialVelocity + d;
 
                 var sz = particles[i].startSize3D;
-                sz.y = startSize;
+                sz.x = particleLength;
+                sz.y = startSize * particleWidth;
                 sz.z = startSize;
                 particles[i].startSize3D = sz;
                 startSize += deltaSize;
