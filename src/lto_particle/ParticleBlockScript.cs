@@ -37,13 +37,15 @@ namespace lto_particle
         }
         public void TurnRenderer(bool state)
         {
-            var renderers = gameObject.GetComponentsInChildren<Renderer>();
-            foreach (var renderer in renderers)
-            {
-                //Debug.Log(renderer.name);
-                if (renderer.name == "Vis")
-                    renderer.enabled = state;
-            }
+            var trs = gameObject.transform.FindChild("Vis");
+            trs.gameObject.SetActive(state);
+            //var renderers = gameObject.GetComponentsInChildren<Renderer>();
+            //foreach (var renderer in renderers)
+            //{
+            //    //Debug.Log(renderer.name);
+            //    if (renderer.name == "Vis")
+            //        renderer.enabled = state;
+            //}
         }
 
         //public override void OnSimulateStop()

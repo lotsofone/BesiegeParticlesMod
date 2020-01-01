@@ -68,7 +68,6 @@ namespace lto_particle
         public void TurnColliders(bool state)
         {
             var colliders = gameObject.GetComponentsInChildren<BoxCollider>(true);
-            //Debug.Log(colliders.Length);
             foreach (var collider in colliders)
             {
                 if (collider.name == "Box Collider" || collider.name == "Adding Point")
@@ -77,12 +76,17 @@ namespace lto_particle
         }
         public void TurnRenderer(bool state)
         {
-            var renderers = gameObject.GetComponentsInChildren<Renderer>();
-            foreach (var renderer in renderers)
-            {
-                if (renderer.name == "Vis")
-                    renderer.enabled = state;
-            }
+            var trs = gameObject.transform.FindChild("Vis");
+            trs.gameObject.SetActive(state);
+            //var renderers = gameObject.GetComponentsInChildren<Renderer>();
+            //foreach (var renderer in renderers)
+            //{
+            //    if (renderer.name == "Vis")
+            //    {
+            //        renderer.enabled = state;
+            //    }
+                
+            //}
         }
     }
     public class RetroBehaviour : MonoBehaviour
