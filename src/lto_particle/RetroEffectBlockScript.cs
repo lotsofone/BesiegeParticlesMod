@@ -16,19 +16,21 @@ namespace lto_particle
         MSlider axisSpeedRamdon, normalSpeedRandom;
         MSlider dampen;
         MSlider windPower;
+        MSlider initialSpeed;
 
         RetroBehaviour retroBehaviour;
         public override void SafeAwake()
         {
             base.SafeAwake();
             startKey = AddKey("启动", "lto_particle_startKey", KeyCode.P);
-            this.channelCount = new MValue("通道数", "lto_particle_channelCount", 4);
-            this.particlePerChannel = new MValue("粒子数量", "lto_particle_particlePerChannel", 100);
-            this.changeDuration = new MSlider("变化时间", "lto_particle_changeDuration", 1, 0, 10, true);
-            this.axisSpeedRamdon = new MSlider("线速度波动", "lto_particle_axisSpeedRandom", 0.15f, 0, 1f, true);
-            this.normalSpeedRandom = new MSlider("法速度波动", "lto_particle_normalSpeedRandom", 0.0625f, 0, 1f, true);
-            this.dampen = new MSlider("阻尼", "lto_particle_dampen", 0.015f, 0, 0.1f, true);
-            this.windPower = new MSlider("风力", "lto_particle_windPower", 0.01f, 0f, 0.1f, true);
+            this.channelCount = AddValue("通道数", "lto_particle_channelCount", 4);
+            this.particlePerChannel = AddValue("粒子数量", "lto_particle_particlePerChannel", 100);
+            this.changeDuration = AddSliderUnclamped("变化时间", "lto_particle_changeDuration", 1, 0, 10);
+            this.axisSpeedRamdon = AddSliderUnclamped("线速度波动", "lto_particle_axisSpeedRandom", 0.15f, 0, 1f);
+            this.normalSpeedRandom = AddSliderUnclamped("法速度波动", "lto_particle_normalSpeedRandom", 0.0625f, 0, 1f);
+            this.dampen = AddSliderUnclamped("阻尼", "lto_particle_dampen", 0.015f, 0, 0.1f);
+            this.windPower = AddSliderUnclamped("风力", "lto_particle_windPower", 0.01f, 0f, 0.1f);
+            this.initialSpeed = AddSliderUnclamped("发射速度", "lto_particle_initialSpeed", 0.1f, 0f, 1f);
         }
         public override void OnSimulateStart()
         {
@@ -45,6 +47,7 @@ namespace lto_particle
             this.retroBehaviour.normalSpeedRandom = normalSpeedRandom.Value;
             this.retroBehaviour.dampen = dampen.Value;
             this.retroBehaviour.windPower = windPower.Value;
+            this.retroBehaviour.initialSpeed = initialSpeed.Value;
         }
         public override void SimulateUpdateAlways()
         {
@@ -70,7 +73,6 @@ namespace lto_particle
             var renderers = gameObject.GetComponentsInChildren<Renderer>();
             foreach (var renderer in renderers)
             {
-                //Debug.Log(renderer.name);
                 if (renderer.name == "Vis")
                     renderer.enabled = state;
             }
@@ -94,6 +96,7 @@ namespace lto_particle
         public float normalSpeedRandom = 0.0625f;
         public float dampen = 0.015f;
         public float windPower = 0.01f;
+        public float initialSpeed = 0.1f;
 
         // Start is called before the first frame update
         public void Start()
@@ -125,7 +128,7 @@ namespace lto_particle
             var emission = ps.emission;
             emission.rate = 0;
             ps.startLifetime = 10;
-            ps.simulationSpace = ParticleSystemSimulationSpace.World;
+            ps.simulationSpace = ParticleSystemSimulationSpace.Local;
 
             ps.maxParticles = particleCountPerChannel * channelCount;
 
@@ -149,12 +152,6 @@ namespace lto_particle
                 colorKeys[i] = new GradientColorKey(new Color(0f, 0f, 0f), 0f + i * 0.5f);
                 alphaKeys[0] = new GradientAlphaKey(1f, 0f + i * 0.5f);
             }
-            //colorKeys[0] = new GradientColorKey(new Color(1f, 0.4f, 0.1f), 0f);
-            //colorKeys[1] = new GradientColorKey(new Color(0.7f, 0.1f, 0f), 0.5f);
-            //colorKeys[2] = new GradientColorKey(new Color(0f, 0f, 0f), 1f);
-            //alphaKeys[0] = new GradientAlphaKey(1f, 0f);
-            //alphaKeys[1] = new GradientAlphaKey(1f, 0.5f);
-            //alphaKeys[2] = new GradientAlphaKey(1f, 1f);
             gradient.SetKeys(colorKeys, alphaKeys);
             var col = ps.colorOverLifetime;
             col.enabled = true;
@@ -181,13 +178,9 @@ namespace lto_particle
         }
 
         // Update is called once per frame
-        public void LateUpdate()
+        public void Update()
         {
             var ps = gameObject.GetComponent<ParticleSystem>();
-            //for (int i = 0; i > _particleCount; i++)
-            //{
-            //	particles[i].rotation3D = new UnityEngine.Vector3(1f, 1f, 1f);
-            //}
             ps.SetParticles(particles, _particleCount);
             //设置颜色渐变
             var colorModule = ps.colorOverLifetime;
@@ -236,18 +229,16 @@ namespace lto_particle
 
             var ps = gameObject.GetComponent<ParticleSystem>();
 
-            Vector3 initialPosition = ps.transform.position;
+            Vector3 initialPosition = Vector3.zero;
             Vector3 velocity;
             if (ps.GetComponent<Rigidbody>() != null)
             {
-                velocity = ps.GetComponent<Rigidbody>().velocity;
+                velocity = ps.transform.InverseTransformDirection(ps.GetComponent<Rigidbody>().velocity);
             }
             else
             {
-                velocity = new Vector3(0.01f, 0, 0);
+                velocity = new Vector3(0, 0, 1f);
             }
-            //补足追踪延迟。以后还是以Local空间模拟，就不存在追踪延迟了，也不用考虑旋转。
-            initialPosition += velocity * Time.deltaTime;
             Vector3 wind = Vector3.Normalize(velocity) * -windPower;
 
             Vector3 d = new UnityEngine.Vector3(axisSpeedRandom, normalSpeedRandom, normalSpeedRandom);
@@ -256,8 +247,7 @@ namespace lto_particle
             d.z -= d.z * UnityEngine.Random.value * 2;
             d *= 0.5f;
             d = Quaternion.AngleAxis(Vector3.Angle(velocity, Vector3.right), Vector3.Cross(Vector3.right, velocity)) * d;
-            //d = Quaternion.LookRotation(velocity, Vector3.right) * d;
-            UnityEngine.Vector3 initialVelocity = ps.transform.TransformDirection(UnityEngine.Vector3.forward) * 0.1f;
+            Vector3 initialVelocity = Vector3.forward * initialSpeed;
             float startSize = 1;
             float deltaSize = 1f / (end - begin);
             float startLifeTime = ps.startLifetime;
@@ -280,14 +270,10 @@ namespace lto_particle
             }
             float rotation = UnityEngine.Random.value * 360;
 
-            //Debug.Log("set rotation" + rotation.ToString());
             for (int i = begin; i < end; i++)
             {
                 var p = particles[i];
-                var q1 = transform.rotation;
-                var q2 = Quaternion.Euler(rotation, 0, 0);
-                p.rotation3D = (q1 * q2).eulerAngles;
-
+                p.rotation3D = new Vector3(rotation, 0, 0);
                 particles[i] = p;
             }
         }

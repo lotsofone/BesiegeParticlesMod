@@ -2,7 +2,7 @@
     <Debug>True</Debug>
     <ID>0</ID>
     <Name>Particle Block</Name>
-    <Mass>0.2</Mass>
+    <Mass>0.01</Mass>
     <SearchKeywords>
         <Keyword>Particle</Keyword>
     </SearchKeywords>
